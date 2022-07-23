@@ -9,20 +9,20 @@ import UIKit
 
 class Note: NSObject, NSCoding {
     var summary: String
-    var body: String
+    var details: String
 
-    init(summary: String, body: String) {
+    init(summary: String, details: String) {
         self.summary = summary
-        self.body = body
+        self.details = details
     }
 
     required init?(coder aDecoder: NSCoder) {
         summary = aDecoder.decodeObject(forKey: "summary") as? String ?? ""
-        body = aDecoder.decodeObject(forKey: "body") as? String ?? ""
+        details = aDecoder.decodeObject(forKey: "details") as? String ?? ""
     }
 
     func encode(with aCoder: NSCoder) {
         aCoder.encode(summary, forKey: "summary")
-        aCoder.encode(body, forKey: "body")
+        aCoder.encode(details, forKey: "details")
     }
 }

@@ -11,14 +11,14 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var summaryLabel: UILabel!
     @IBOutlet weak var bodyText: UITextView!
     var summary: String?
-    var body: String?
+    var details: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Compose", style: .plain, target: self, action: #selector(compose))
         summaryLabel?.text = summary
-        bodyText?.text = body
+        bodyText?.text = details
         // Do any additional setup after loading the view.
     }
     

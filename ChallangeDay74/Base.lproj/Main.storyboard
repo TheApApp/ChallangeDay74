@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--View Controller-->
         <scene sceneID="h9F-fO-tU8">
             <objects>
-                <tableViewController id="lQf-8V-wHB" sceneMemberID="viewController">
+                <tableViewController id="lQf-8V-wHB" customClass="ViewController" customModule="ChallangeDay74" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Ztb-SI-WAC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -62,9 +62,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RjB-eS-cvw">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RjB-eS-cvw">
                                 <rect key="frame" x="186" y="77" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -73,6 +72,8 @@
                         <viewLayoutGuide key="safeArea" id="90F-3M-G1w"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="RjB-eS-cvw" firstAttribute="top" secondItem="90F-3M-G1w" secondAttribute="top" constant="33" id="Fw6-eq-FjP"/>
+                            <constraint firstItem="RjB-eS-cvw" firstAttribute="centerX" secondItem="Lcy-Wb-kaA" secondAttribute="centerX" id="KPQ-fc-01c"/>
                             <constraint firstItem="Lcy-Wb-kaA" firstAttribute="trailing" secondItem="9GD-Ol-Z78" secondAttribute="trailingMargin" id="bYG-wO-h8H"/>
                             <constraint firstItem="Lcy-Wb-kaA" firstAttribute="leading" secondItem="9GD-Ol-Z78" secondAttribute="leadingMargin" id="kPB-vX-23Z"/>
                             <constraint firstItem="Lcy-Wb-kaA" firstAttribute="top" secondItem="90F-3M-G1w" secondAttribute="top" constant="62" id="oUh-Y1-gfA"/>
@@ -80,7 +81,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="body" destination="Lcy-Wb-kaA" id="Fwv-ZW-pHn"/>
+                        <outlet property="bodyText" destination="Lcy-Wb-kaA" id="loB-Ji-wtd"/>
                         <outlet property="summaryLabel" destination="RjB-eS-cvw" id="e2O-ZL-JX1"/>
                     </connections>
                 </viewController>

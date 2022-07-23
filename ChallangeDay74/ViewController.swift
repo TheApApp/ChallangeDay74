@@ -40,7 +40,8 @@ class ViewController: UITableViewController {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
             // add content
             let note = notes[indexPath.row]
-            vc.body = note.body
+            print(note)
+            vc.details = note.details
             vc.summary = note.summary
 
             navigationController?.pushViewController(vc, animated: true)
@@ -48,8 +49,16 @@ class ViewController: UITableViewController {
     }
 
     @objc func addNote() {
-        let note = Note(summary: "Test", body: "A whole bunch more stuff")
+        let note = Note(summary: "Test", details: "A whole bunch more stuff")
         notes.append(note)
+        save()
+    }
+
+    func save() {
+        if let savedData = try? NSKeyedArchiver.archivedData(withRootObject: notes, requiringSecureCoding: false) {
+            let defaults = UserDefaults.standard
+            defaults.set(savedData, forKey: "notes")
+        }
     }
 
 }
