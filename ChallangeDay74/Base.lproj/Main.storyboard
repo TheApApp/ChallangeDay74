@@ -62,18 +62,10 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RjB-eS-cvw">
-                                <rect key="frame" x="186" y="77" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="90F-3M-G1w"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="RjB-eS-cvw" firstAttribute="top" secondItem="90F-3M-G1w" secondAttribute="top" constant="33" id="Fw6-eq-FjP"/>
-                            <constraint firstItem="RjB-eS-cvw" firstAttribute="centerX" secondItem="Lcy-Wb-kaA" secondAttribute="centerX" id="KPQ-fc-01c"/>
                             <constraint firstItem="Lcy-Wb-kaA" firstAttribute="trailing" secondItem="9GD-Ol-Z78" secondAttribute="trailingMargin" id="bYG-wO-h8H"/>
                             <constraint firstItem="Lcy-Wb-kaA" firstAttribute="leading" secondItem="9GD-Ol-Z78" secondAttribute="leadingMargin" id="kPB-vX-23Z"/>
                             <constraint firstItem="Lcy-Wb-kaA" firstAttribute="top" secondItem="90F-3M-G1w" secondAttribute="top" constant="62" id="oUh-Y1-gfA"/>
@@ -82,7 +74,6 @@
                     </view>
                     <connections>
                         <outlet property="bodyText" destination="Lcy-Wb-kaA" id="loB-Ji-wtd"/>
-                        <outlet property="summaryLabel" destination="RjB-eS-cvw" id="e2O-ZL-JX1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vx5-JZ-LCb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
