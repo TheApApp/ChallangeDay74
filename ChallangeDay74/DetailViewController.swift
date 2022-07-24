@@ -13,9 +13,6 @@ class DetailViewController: UIViewController {
     var row: Int?
     var noteDictionary:[String: Any] = ["row": 0, "details":""]
 
-    /// to do:
-    /// Add keyboard is shown or hidden insets logic
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,6 +20,11 @@ class DetailViewController: UIViewController {
         let shareItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareNote))
         navigationItem.rightBarButtonItems = [shareItem, deleteItem]
         bodyText?.text = details
+
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -54,5 +56,23 @@ class DetailViewController: UIViewController {
         let vc = UIActivityViewController(activityItems: [details], applicationActivities: [])
         vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
         present(vc, animated: true)
+    }
+
+    @objc func adjustForKeyboard(notification: Notification) {
+        guard let keyboardValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+
+        let keyboardScreenEndFrame = keyboardValue.cgRectValue
+        let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
+
+        if notification.name == UIResponder.keyboardWillHideNotification {
+            bodyText.contentInset = .zero
+        } else {
+            bodyText.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height - view.safeAreaInsets.bottom, right: 0)
+        }
+
+        bodyText.scrollIndicatorInsets = bodyText.contentInset
+
+        let selectedRange = bodyText.selectedRange
+        bodyText.scrollRangeToVisible(selectedRange)
     }
 }
