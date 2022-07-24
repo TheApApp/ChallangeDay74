@@ -14,6 +14,7 @@ class ViewController: UITableViewController, UNUserNotificationCenterDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNote))
+        title = "MR Notes"
 
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(deleteNotificationReceived(_:)), name: Notification.Name("DeleteNote"), object: nil)
